@@ -28,9 +28,9 @@ y_kmeans = loaded_model.predict(X)
 
 # Plotting
 fig, ax = plt.subplots()
-scatter = ax.scatter(X[:, 0], X[:, 1], c=y_kmeans, cmap='viridis', s=50)
+scatter = ax.scatter(X[:, 0], X[:, 1], c=y_kmeans, cmap='viridis')
 ax.scatter(loaded_model.cluster_centers_[:, 0], loaded_model.cluster_centers_[:, 1], 
-           s=200, c='red', marker='X')
+           s=300, c='red')
 ax.set_title('K-Means Clustering')
 ax.legend()
 st.pyplot(fig)
