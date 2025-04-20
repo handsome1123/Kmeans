@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import pickle
 from sklearn.datasets import make_blobs
 
-# ✅ This must be first!
+
 st.set_page_config(page_title="K-Means Clustering", layout="centered")
 
 # Load KMeans model
@@ -30,7 +30,7 @@ y_kmeans = loaded_model.predict(X)
 fig, ax = plt.subplots()
 scatter = ax.scatter(X[:, 0], X[:, 1], c=y_kmeans, cmap='viridis', s=50)
 ax.scatter(loaded_model.cluster_centers_[:, 0], loaded_model.cluster_centers_[:, 1], 
-           s=200, c='red', marker='X', label='Centroids')
+           s=200, c='red', marker='X')
 ax.set_title('K-Means Clustering')
 ax.legend()
 st.pyplot(fig)
