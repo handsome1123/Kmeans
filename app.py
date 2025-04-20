@@ -26,17 +26,11 @@ X, _ = make_blobs(n_samples=300, centers=loaded_model.n_clusters, cluster_std=0.
 # Predict using the loaded model
 y_kmeans = loaded_model.predict(X)
 
-# Plotting
 fig, ax = plt.subplots()
-
-# No label for the main data points (removes square in legend)
 ax.scatter(X[:, 0], X[:, 1], c=y_kmeans, cmap='viridis', s=50)
-
-# Label only the centroids
-ax.scatter(loaded_model.cluster_centers_[:, 0], loaded_model.cluster_centers_[:, 1],
-           s=300, c='red')
-
-# Title and legend
+ax.scatter(loaded_model.cluster_centers_[:, 0], loaded_model.cluster_centers_[:, 1], 
+           s=300, c='red', marker='X')  # no label
 ax.set_title('K-Means Clustering')
-ax.legend()  # Will only show 'Centroids' with X marker
+# ax.legend()  ← do NOT call this
 st.pyplot(fig)
+
