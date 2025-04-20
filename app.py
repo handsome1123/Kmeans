@@ -28,9 +28,15 @@ y_kmeans = loaded_model.predict(X)
 
 # Plotting
 fig, ax = plt.subplots()
-scatter = ax.scatter(X[:, 0], X[:, 1], c=y_kmeans, cmap='viridis')
-ax.scatter(loaded_model.cluster_centers_[:, 0], loaded_model.cluster_centers_[:, 1], 
-           s=300, c='red')
+
+# No label for the main data points (removes square in legend)
+ax.scatter(X[:, 0], X[:, 1], c=y_kmeans, cmap='viridis', s=50)
+
+# Label only the centroids
+ax.scatter(loaded_model.cluster_centers_[:, 0], loaded_model.cluster_centers_[:, 1],
+           s=300, c='red', marker='X', label='Centroids')
+
+# Title and legend
 ax.set_title('K-Means Clustering')
-ax.legend()
+ax.legend()  # Will only show 'Centroids' with X marker
 st.pyplot(fig)
